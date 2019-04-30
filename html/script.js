@@ -96,6 +96,30 @@ $(function() {
         // Set page event feeds
         feed();
     });
+    // DHCP field toggles
+    $('#dhcp').click(function() {
+        if ($(this).is(':checked')) {
+            $('.dhcp').addClass('hidden');
+        } else {
+            $('.dhcp').removeClass('hidden');
+        }
+    });
+
+    // MQTT field toggles
+    $('#mqtt').click(function() {
+        if ($(this).is(':checked')) {
+            $('.mqtt').removeClass('hidden');
+        } else {
+            $('.mqtt').addClass('hidden');
+        }
+    });
+    // Pixel type toggles
+    $('#p_type').change(function() {
+        if ($('select[name_type]').val() == '1')
+            $('#p_color').prop('disabled', true);
+        else
+            $('#p_color').prop('disabled', false);
+    });
 });
 
 function wsConnect() {
