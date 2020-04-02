@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="title"></title>
-    <!-- for local development -->
+    <!-- Uncomment for local development -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <!-- For Local development-->
     <link rel="stylesheet" type="text/css" href="esps.css">
-</head>
+
+</head> 
 
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -203,88 +204,103 @@
             <!-- Network Confiduration-->
             <fieldset>
                 <legend class="esps-legend"> Configuration</legend>
-                <form class="form-horizontal">
-                    <div class="form-group" id="fg_ssid">
-                        <label class="control-label col-sm-2" for="ssid">SSID</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" id="ssid" name="ssid" placeholder="Enter SSID"></div>
-                    </div>
-                    <div class="form-group" id="fg_password">
-                        <label class="control-label col-sm-2" for="password">Password</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" id="password" name="password" placeholder="Enter Password"></div>
-                    </div>
-                    <div class="form-group" id="fg_hostname">
-                        <label class="control-label col-sm-2" for="hostname">Hostname</label>
-                        <div class="col-sm-10"><input type="text" class="form-control has-error" id="hostname" name="hostname" placeholder="Enter Hostname"></div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox"><label><input type="checkbox" id="dhcp" name="dhcp"> Use DHCP</label></div>
-                        </div>
-                    </div>
-                    <div class="form-group dhcp" id="fg_ip">
-                        <label class="control-label col-sm-2" for="ip">IP</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" id="ip" name="ip" placeholder="xxx.xxx.xxx.xxx"></div>
-                    </div>
-                    <div class="form-group dhcp" id="fg_netmask">
-                        <label class="control-label col-sm-2" for="netmask">Netmask</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" id="netmask" name="netmask" placeholder="xxx.xxx.xxx.xxx"></div>
-                    </div>
-                    <div class="form-group dhcp" id="fg_gateway">
-                        <label class="control-label col-sm-2" for="gateway">Gateway</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" id="gateway" name="gateway" placeholder="xxx.xxx.xxx.xxx"></div>
-                    </div>
-
-                    <!-- UDP Configuration -->
-                    <div class="form-group hidden">
-                        <legend class="esps-legend">UDP Configuration</legend>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox"><label><input type="checkbox" id="udp_enabled" name="udp_enabled"> Enable UDP Raw </label></div>
+                    <form class="form-horizontal">
+                        <details>
+                            <summary>Network</summary>
+                            <br>
+                            <div class="form-group" id="fg_ssid">
+                                <label class="control-label col-sm-2" for="ssid">SSID</label>
+                                <div class="col-sm-10"><input type="text" class="form-control" id="ssid" name="ssid" placeholder="Enter SSID"></div>
                             </div>
-                        </div>
-                        <div class="form-group" id="fg_udpport">
-                            <label class="control-label col-sm-2" for="ssid">UDP Raw Port</label>
-                            <div class="col-sm-10"><input type="number" class="form-control" id="udp_port" name="udp_port" placeholder="Enter UDP Port"></div>
-                        </div>
-                    </div>
-                    <!-- Pixel Configuration -->
-                    <legend class="esps-legend">Pixel Configuration</legend>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="p_count">Pixel Count</label>
-                        <div class="col-sm-10">
-                            <input type="number" step="1" class="form-control" id="p_count" name="p_count" placeholder="Enter number of pixels" onchange="refreshPixel()">
-                            <button type="button" onclick="showCountPixels()" class="btn btn-primary">Count</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="p_type">Pixel Type</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="p_type" name="p_type" onclick="refreshPixel()"></select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="p_color">Color Order</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="p_color" name="p_color"></select>
-                        </div>
-                    </div>
-                    <div class="form-group hidden">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox"><label><input type="checkbox" id="p_gamma" name="p_gamma"> Gamma Correction</label></div>
-                        </div>
-                    </div>
-                    <div class="form-group hidden">
-                        <label class="control-label col-sm-2" for="p_gammaVal">Gamma Value</label>
-                        <div class="col-sm-3"><input type="number" step="0.1" class="form-control" id="p_gammaVal" name="p_gammaVal" placeholder="Gamma Value" onchange="refreshPixel()"></div>
-                        <label class="control-label col-sm-2" for="p_briteVal">Brightness</label>
-                        <div class="col-sm-3"><input type="number" step="0.1" class="form-control" id="p_briteVal" name="p_briteVal" placeholder="Brightness" onchange="refreshPixel()"></div>
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox"><label><input type="checkbox" id="showgamma" name="showgamma"> Show Gamma Curve</label></div>
-                        </div>
-                    </div>
-                    <div class="form-group hidden">
+                            <div class="form-group" id="fg_password">
+                                <label class="control-label col-sm-2" for="password">Password</label>
+                                <div class="col-sm-10"><input type="text" class="form-control" id="password" name="password" placeholder="Enter Password"></div>
+                            </div>
+                            <div class="form-group" id="fg_hostname">
+                                <label class="control-label col-sm-2" for="hostname">Hostname</label>
+                                <div class="col-sm-10"><input type="text" class="form-control has-error" id="hostname" name="hostname" placeholder="Enter Hostname"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox"><label><input type="checkbox" id="dhcp" name="dhcp"> Use DHCP</label></div>
+                                </div>
+                            </div>
+                            <div class="form-group dhcp" id="fg_ip">
+                                <label class="control-label col-sm-2" for="ip">IP</label>
+                                <div class="col-sm-10"><input type="text" class="form-control" id="ip" name="ip" placeholder="xxx.xxx.xxx.xxx"></div>
+                            </div>
+                            <div class="form-group dhcp" id="fg_netmask">
+                                <label class="control-label col-sm-2" for="netmask">Netmask</label>
+                                <div class="col-sm-10"><input type="text" class="form-control" id="netmask" name="netmask" placeholder="xxx.xxx.xxx.xxx"></div>
+                            </div>
+                            <div class="form-group dhcp" id="fg_gateway">
+                                <label class="control-label col-sm-2" for="gateway">Gateway</label>
+                                <div class="col-sm-10"><input type="text" class="form-control" id="gateway" name="gateway" placeholder="xxx.xxx.xxx.xxx"></div>
+                            </div>
+                        </details>
+
+                        <!-- UDP Configuration -->
+                        <details>
+                            <summary>UDP Configuration</summary>
+                            <br>
+                            <div class="form-group">
+                                <!-- <legend class="esps-legend">UDP Configuration</legend> -->
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox"><label><input type="checkbox" id="udp_enabled" name="udp_enabled"> Enable UDP Raw </label></div>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="fg_udpport">
+                                    <label class="control-label col-sm-2" for="ssid">UDP Raw Port</label>
+                                    <div class="col-sm-10"><input type="number" class="form-control" id="udp_port" name="udp_port" placeholder="Enter UDP Port"></div>
+                                </div>
+                            </div>
+                        </details>
+                        <!-- Pixel Configuration -->
+                        <details>
+                            <summary>Pixel Configuration</summary>
+                            <br>
+                            <!-- <legend class="esps-legend">Pixel Configuration</legend> -->
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="p_count">Pixel Count</label>
+                                <div class="col-sm-10">
+                                    <input type="number" step="1" class="form-control" id="p_count" name="p_count" placeholder="Enter number of pixels" onchange="refreshPixel()">
+                                    <button type="button" onclick="showCountPixels()" class="btn btn-primary">Count</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="p_type">Pixel Type</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="p_type" name="p_type" onclick="refreshPixel()"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="p_color">Color Order</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="p_color" name="p_color"></select>
+                                </div>
+                            </div>
+                            <div class="form-group hidden">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox"><label><input type="checkbox" id="p_gamma" name="p_gamma"> Gamma Correction</label></div>
+                                </div>
+                            </div>
+                            <div class="form-group hidden">
+                                <label class="control-label col-sm-2" for="p_gammaVal">Gamma Value</label>
+                                <div class="col-sm-3"><input type="number" step="0.1" class="form-control" id="p_gammaVal" name="p_gammaVal" placeholder="Gamma Value" onchange="refreshPixel()"></div>
+                                <label class="control-label col-sm-2" for="p_briteVal">Brightness</label>
+                                <div class="col-sm-3"><input type="number" step="0.1" class="form-control" id="p_briteVal" name="p_briteVal" placeholder="Brightness" onchange="refreshPixel()"></div>
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox"><label><input type="checkbox" id="showgamma" name="showgamma"> Show Gamma Curve</label></div>
+                                </div>
+                            </div>
+                        </details>
+
                         <!-- MQTT Configuration -->
-                        <legend class="esps-legend">MQTT Configuration</legend>
+                        <details>
+                            <summary>MQTT Configuration</summary>
+                            <br>
+                        <!-- <legend class="esps-legend">MQTT Configuration</legend> -->
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <div class="checkbox"><label><input type="checkbox" id="mqtt" name="mqtt"> Enable MQTT</label></div>
@@ -315,15 +331,17 @@
                                 <div class="checkbox"><label><input type="checkbox" id="mqtt_clean" name="mqtt_clean"> Clean Session</label></div>
                             </div>
                         </div>
-<br>
-                    </div>
-                    <!-- Device Config Save -->
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" onclick="submitConfig()" class="btn btn-primary">Save Changes</button>
+                        <br>
+                        </details>
+
+                        <!-- Device Config Save -->
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" onclick="submitConfig()" class="btn btn-primary">Save Changes</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </details>
             </fieldset>
         </div>
     </div>
@@ -377,12 +395,12 @@
             <i><span id="name"></span></i>
         </div>
     </footer>
-    <!-- for local development -->
+    <!-- Uncomment for local development -->
     <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jqColorPicker.js"></script>
     <script type="text/javascript" src="script.js"></script>
-
+    <!--Local Development-->
     <script type="text/javascript" src="esps.js"></script>
     <script>
         wsConnect();

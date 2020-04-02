@@ -1,2 +1,2 @@
-# WiFiMoodLight
-ESP and WS2812 based wifi Mood Light firmware
+# ESPLED
+FASTLED Based firmware for WS2812 using ESP32 or ESP8266
